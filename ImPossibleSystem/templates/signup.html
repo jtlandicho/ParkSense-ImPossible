@@ -30,6 +30,8 @@
    </script>
 </head>
 <body>
+
+   <div class="ParkSense">Powered by ParkSense</div>
    <div class="login">
       <img src="{% static 'images/apc_building.png' %}" alt="image" class="login__bg">
 
@@ -43,6 +45,7 @@
          <div class="login__inputs">
             <div class="login__box">
                <input type="text" placeholder="Username" required class="login__input" id="username" name="username">
+               <i class="ri-user-fill"></i>
                <label for="Username" class="login__label"></label>
             </div>
 
@@ -66,7 +69,11 @@
             </div>
          </div>
          <button type="submit" class="login__button">Register</button>
+         <div class="login__login">
+            <i class="ri-arrow-left-s-line"> </i>
+            <a href="{% url 'login' %}">Back to login</a>
       </form>
-   </div>
+
+
 </body>
 </html>

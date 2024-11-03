@@ -17,7 +17,8 @@
     <div class="login">
         <img src="{% static '/images/apc_building.png' %}" alt="image" class="login__bg">  <!-- Update image link -->
 
-        <form action="" class="login__form">
+        <form action="" class="login__form" method ="POST">
+            {% csrf_token %}
             <div class="log__header">
                 <img src="{% static 'images/apc_logo.png' %}" class="logo">  <!-- Update logo link -->
                 <h1 class="login__title">Parking Management System</h1>
@@ -25,21 +26,30 @@
             <hr class="break">
             <div class="login__inputs">
                 <div class="login__box">
-                    <input type="email" placeholder="Email" required class="login__input">
-                    <i class="ri-mail-fill"></i>
+                    <input type="username" placeholder="Username" required class="login__input" id ="username" name ="username">
+                    <i class="ri-user-fill"></i>
+                    <label for="username"></label>
                 </div>
 
                 <div class="login__box">
-                    <input type="password" placeholder="Password" required class="login__input">
+                    <input type="password" placeholder="Password" required class="login__input" id="password", name="pass">
                     <i class="ri-lock-2-fill"></i>
+                    <label for="password"></label>
+
                 </div>
 
             <button type="submit" class="login__button">Login</button>
 
             <div class="login__register">
-                Don't have an account? <a href="#">Register</a>
+                Don't have an account? <a href="{% url 'signup' %}">Register</a>
             </div>
         </form>
     </div>
+
+    <script>
+        {% if error_message %}
+            alert("{{ error_message|escapejs }}");
+        {% endif %}
+    </script>
 </body>
 </html>
