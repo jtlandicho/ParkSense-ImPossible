@@ -3,16 +3,55 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
 
     <title>Home Page</title>
   </head>
   <body>
-    <h1>Home Page</h1>
-    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+    <div class="container">
+        <nav>
+            <ul class="nav-list">
+                <li>
+                    <a href="#" class="logo">
+                        <img src= "{% static 'images/apc_logo.png' %} " alt="APC Logo" >
+                        <span class="nav-item4">ParkSense</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'slots' %}">
+                        <i class="ri-parking-line"></i>
+                        <span class="nav-item">Parking Slots</span>
+                    </a>
+                </li>
+                {% if user.is_superuser %}
+
+                <li>
+                    <a href="{% url 'analytics' %}">
+                        <i class="ri-pie-chart-box-line"></i>
+                        <span class="nav-item">Analytics</span>
+                    </a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="#">
+                        <i class="ri-settings-fill"></i>
+                        <span class="nav-item">Settings</span>
+                    </a>
+                </li>
+                <li> 
+                    <a href="{% url 'logout' %}" class="logout">
+                        <i class="ri-logout-box-line"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

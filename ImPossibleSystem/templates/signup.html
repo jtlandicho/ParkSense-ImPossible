@@ -30,7 +30,11 @@
    </script>
 </head>
 <body>
-
+   {% if messages %}
+   {% for message in messages %}
+       <div class="alert alert-danger">{{ message }}</div>
+   {% endfor %}
+  {% endif %}
    <div class="ParkSense">Powered by ParkSense</div>
    <div class="login">
       <img src="{% static 'images/apc_building.png' %}" alt="image" class="login__bg">
@@ -72,6 +76,7 @@
          <div class="login__login">
             <i class="ri-arrow-left-s-line"> </i>
             <a href="{% url 'login' %}">Back to login</a>
+
       </form>
 
 

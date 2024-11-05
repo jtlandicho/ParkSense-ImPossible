@@ -18,6 +18,11 @@
         <img src="{% static '/images/apc_building.png' %}" alt="image" class="login__bg">  <!-- Update image link -->
 
         <form action="" class="login__form" method ="POST">
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
             {% csrf_token %}
             <div class="log__header">
                 <img src="{% static 'images/apc_logo.png' %}" class="logo">  <!-- Update logo link -->

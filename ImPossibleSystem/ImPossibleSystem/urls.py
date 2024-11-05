@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import path
 from app1 import views
 
-from .views import admin_view, guest_view
 
 
 urlpatterns = [
@@ -27,10 +26,7 @@ urlpatterns = [
     path('register/', views.SignUpPage, name='signup'),
     path('', views.LoginPage, name='login'),
     path('home/', views.HomePage, name='home'),
-    path('logout/', views.LogoutPage, name='logout')
-]
-
-urlpatterns = [
-    path('admin/', admin_view, name='admin_dashboard'),
-    path('guest/', guest_view, name='guest_dashboard'),
+    path('logout/', views.LogoutPage, name='logout'),
+    path('slots/', views.parking_slots, name='slots'),
+    path('analytics/', views.analytics, name='analytics'),
 ]
