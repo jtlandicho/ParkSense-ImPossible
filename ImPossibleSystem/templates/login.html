@@ -45,11 +45,20 @@
             </div>
         </form>
     </div>
-
-    <script>
-        {% if error_message %}
-            alert("{{ error_message|escapejs }}");
-        {% endif %}
-    </script>
 </body>
 </html>
+
+<!----------------
+
+user account:
+
+user = User.objects.get(username='jtlandicho')  
+user.set_password('123')   
+user.save()
+
+admin/
+
+super user:
+Username: JohnJorelLandicho1234
+Password: JohnJorelLandicho1234
+------------------>

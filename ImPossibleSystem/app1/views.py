@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 
 def HomePage(request):
     return render(request, 'home.html')
@@ -44,3 +45,17 @@ def LoginPage(request):
 def LogoutPage(request):
     logout(request)
     return redirect('login')
+
+
+@login_required
+def admin_view(request):
+    if request.user.is_superuser or request.user.userprofile.is_admin:
+        return render(request, 'admin_dashboard.html')
+    else:
+        return HttpResponseForbidden()
+
+@login_required
+def guest_view(request):
+    if request.user.is_superuser or request.user.userprofile.is_admin:
+        return redirect('admin_dashboard')  # Redirect admin to the admin view
+    return render(request, 'guest_dashboard.html')
