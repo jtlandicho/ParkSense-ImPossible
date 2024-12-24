@@ -122,9 +122,9 @@ img {
 
 }
 
-.break{
+hr{
   border: none;           /* Remove the default border */
-  border-top: 2px solid black; /* Set the line thickness and color */
+  border-top: 3px solid rgb(0, 0, 0);
   width: 50%;             /* Set the line width (e.g., 50% of the container) */
   margin: -10px auto 1rem auto; /* Move it 10px up and center it */
   margin-bottom: 0.875rem;
